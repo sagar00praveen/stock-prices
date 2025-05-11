@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+</head>
+<body>
+    <h1>Upload Stock CSV File</h1>
+    {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+
+    {% if plot_html %}
+        <h2>Prediction Result</h2>
+        {{ plot_html | safe }}
+    {% endif %}
+</body>
+</html>
